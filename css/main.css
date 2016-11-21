@@ -4,6 +4,7 @@ html {
     color: #222;
     font-size: 1em;
     line-height: 1.4;
+    overflow-x: hidden;
 }
 
 ::-moz-selection {
@@ -57,11 +58,11 @@ body {
 }
 
 .header-container {
-    border-bottom: 20px solid rgba(97, 185, 158, 1);
+    border-bottom: 20px solid rgba(216, 90, 26, 1);
 }
 
 .footer-container, .main aside {
-    border-top: 20px solid rgba(97, 185, 158, 1);
+    border-top: 20px solid rgba(216, 90, 26, 1);
 }
 
 .header-container, .footer-container, .main aside {
@@ -89,12 +90,48 @@ nav a {
     color: white;
 }
 
-nav a:hover, nav a:visited {
-    color: white;
+nav a:hover {
+    color: rgba(216, 90, 26, 1);
+    text-decoration: none;
 }
 
-nav a:hover {
-    text-decoration: underline;
+.add-deal-button {
+
+}
+
+.add-deal-triangle {
+    position: absolute;
+    top: -22.5px;
+    right: 150px;
+    width: 0;
+    height: 0;
+    border: 1px solid rgba(175, 175, 175, 1);
+    border-left: 22.5px solid transparent;
+    border-right: 22.5px solid transparent;
+    border-bottom: 22.5px solid rgba(245, 245, 245, 1);
+}
+
+.add-deal-modal {
+    position: absolute;
+    /* top: 65px; */
+    right: -600px;
+    width: 600px;
+    height: 100%;
+    z-index: 1;
+    border-left: 1px solid rgba(0, 0, 0, 1);
+    /* border-radius: 12.5px; */
+    background-color: rgba(25, 29, 27, 1);
+    -webkit-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
+    box-shadow: 0px 25px 50px -20px rgba(0,0,0,0.75);
+}
+
+.overlay {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.55);
+    height: 100%;
+    width: 100%;
+    z-index: 2;
 }
 
 .main {
@@ -109,7 +146,6 @@ nav a:hover {
     color: white;
     padding: 0px 5% 10px;
 }
-
 
 section {
     position: relative;
