@@ -15,6 +15,6 @@ A web app that provides users with alerts and information about short duration l
 10. Removing events when end time has past
 11. Adding flair based on certain thresholds and allowing multiple flair pieces
 12. Implementing a rating system and updating the backend on session end
-13. #### Bonus 
+#### 13. Bonus 
   1. User accounts and Authentication
   2. Allowing users to remove their posted events early
