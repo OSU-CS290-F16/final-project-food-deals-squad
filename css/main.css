@@ -120,10 +120,87 @@ nav a:hover {
     z-index: 1;
     border-left: 1px solid rgba(0, 0, 0, 1);
     /* border-radius: 12.5px; */
-    background-color: rgba(25, 29, 27, 1);
+    background-color: rgba(22, 22, 22, 1);
     -webkit-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
     box-shadow: 0px 25px 50px -20px rgba(0,0,0,0.75);
+}
+
+.add-deal-modal>.wrapper {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+.form-header, .form-body, .form-footer {
+    position: relative;
+    width: 100%;
+    color: rgba(220, 220, 220, 1);
+    padding: 0 2em;
+}
+
+.form-header {
+    height: 6.12%;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.form-body, .form-footer {
+    background-color: rgba(30, 30, 30, 1);
+    padding: 2em 0 0 0;
+}
+
+.form-body {
+    height: 31%;
+}
+
+.form-footer {
+    height: 5%;
+}
+
+.commit-deal-button {
+    width: 80%;
+    height: 50px;
+    margin: 0 auto;
+    border-radius: 5px;
+    background-color: rgba(216, 110, 57, 1);
+}
+
+.commit-deal-button>h3 {
+    top: 50%;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    letter-spacing: 0.05em;
+    font-weight: 100;
+    transform: translateY(-50%);
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+}
+
+.form-field {
+    position: relative;
+    height: 75px;
+    width: 80%;
+    margin: 0 auto;
+}
+
+input, textarea {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 35px;
+    width: 100%;
+    margin: 0 auto;
+    background:#000;
+    background:rgba(0,0,0,0.16);
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3) inset, 0 1px rgba(255, 255, 255, 0.06);
+    border: 0 none;
+    border-radius: 3px;
+    color: #BBBBBB;
+    transition:background .2s;
 }
 
 .overlay {
@@ -151,6 +228,7 @@ section {
     position: relative;
     padding: 1em 2em 4em 2em;
     height: 20%;
+    width: 625px;
     -webkit-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
     box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
