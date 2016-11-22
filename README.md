@@ -4,40 +4,29 @@
 A web app that provides users with alerts and information about short duration local food deals on Oregon State Campus and in the surronding areas. 
 
 ### ToDo:
-1. Serving site documents
-2. Various site animations - Vincent Italiano Mob Boss
-3. Location autocomplete for form input - Daniel
-4. Method for inputting time on form field - 
-5. Loading google maps api from event location - Daniel
-7. Adding and removing events from backend - Quinn
-8. Populating the page from backend
-9. Counting down the time of the event on site without updating backend - Quinn
-10. Removing events when end time has past - Quinn 
-11. Adding flair based on certain thresholds and allowing multiple flair pieces
-12. Implementing a rating system and updating the backend on session end
-13. Bonus 
-  1. User accounts and Authentication
-  2. Allowing users to remove their posted events early
 
-| Vince                                                                       |
+| Vince                                                                      !|
 | ----------------------------------------------------------------------------|
 | Various site animations                                                     |
 | Method for inputting time on form field                                     |
 | Populating site from back end                                               |
 
-| Daniel                                                                      |
+| Daniel                                                                     !|
 | ----------------------------------------------------------------------------|
 | Location autocomplete for form input                                        |
 | Loading google maps api from event location                                 |
 
-| Quinn                                                                       |
+| Quinn                                                                      !|
 | ----------------------------------------------------------------------------|
 | Adding and removing events from backend                                     |
 | Counting down the time of the event on site without updating backend        |
 | Removing events when end time has past                                      |
 
-| Justin                                                                      |
+| Justin                                                                     !|
 | ----------------------------------------------------------------------------|
 | Adding flair based on certain thresholds and allowing multiple flair pieces |
 | Implementing a rating system and updating the backend on session end        |
-| Populating site from back end                                               |
+
+####Bonus 
+User accounts and Authentication
+Allowing users to remove their posted events early
