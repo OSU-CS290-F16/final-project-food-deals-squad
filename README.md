@@ -28,5 +28,5 @@ A web app that provides users with alerts and information about short duration l
 | Implementing a rating system and updating the backend on session end        |
 
 ####Bonus 
-User accounts and Authentication
-Allowing users to remove their posted events early
+1. User accounts and Authentication
+2. Allowing users to remove their posted events early
