@@ -5,7 +5,7 @@ A web app that provides users with alerts and information about short duration l
 
 ### ToDo:
 
-| Vince                                                                      !|
+| Vince______________________________________________________________________!|
 | ----------------------------------------------------------------------------|
 | Various site animations                                                     |
 | Method for inputting time on form field                                     |
