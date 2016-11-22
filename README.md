@@ -18,3 +18,26 @@ A web app that provides users with alerts and information about short duration l
 13. Bonus 
   1. User accounts and Authentication
   2. Allowing users to remove their posted events early
+
+| Vince                                                                       |
+| ----------------------------------------------------------------------------|
+| Various site animations                                                     |
+| Method for inputting time on form field                                     |
+| Populating site from back end                                               |
+
+| Daniel                                                                      |
+| ----------------------------------------------------------------------------|
+| Location autocomplete for form input                                        |
+| Loading google maps api from event location                                 |
+
+| Quinn                                                                       |
+| ----------------------------------------------------------------------------|
+| Adding and removing events from backend                                     |
+| Counting down the time of the event on site without updating backend        |
+| Removing events when end time has past                                      |
+
+| Justin                                                                      |
+| ----------------------------------------------------------------------------|
+| Adding flair based on certain thresholds and allowing multiple flair pieces |
+| Implementing a rating system and updating the backend on session end        |
+| Populating site from back end                                               |
