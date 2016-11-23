@@ -177,12 +177,14 @@ nav a:hover {
 }
 
 label {
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1em;
     color: rgba(101, 101, 101, 1);
     font-size: 14px;
     font-weight: 100;
-    position: absolute;
-    left: 12px;
-    top: 25px;
     transition: 0.2s ease all;
     -moz-transition: 0.2s ease all;
     -webkit-transition: 0.2s ease all;
@@ -194,6 +196,10 @@ label {
     font-weight: 400;
     letter-spacing: 0.05em;
     color: rgba(216, 110, 57, 1);
+}
+
+input {
+    display: inline-block;
 }
 
 input[type=text], input[type=checkbox], .time-input {
@@ -239,7 +245,6 @@ input[type=time] {
 }
 
 .time-input label {
-    top: 8px;
     z-index: 11;
 }
 
@@ -256,7 +261,6 @@ input[type=time]::-webkit-outer-spin-button {
 }
 
 input[type=checkbox] {
-    visibility: hidden;
     height: 100%;
     width: 100%;
     background: none;
@@ -369,12 +373,13 @@ input[type=checkbox] {
 }
 
 .tool-tip-text {
-    top: -1px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .tool-tip-text>p {
     font-size: 10.5px;
-    height: 10.5px;
     font-weight: 100;
     color: rgba(33, 33, 33, 1);
     text-align: center;

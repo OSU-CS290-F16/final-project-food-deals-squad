@@ -1,40 +1,41 @@
-$(document).click(function(e) {
+$(function addDealModalAction() {
     var html = $("html"), body = $("body"), overlay = $(".overlay");
     var addDealButton = $("#add-deal-button"), addDealModal = $(".add-deal-modal");
 
-    $(function checkboxAction() {
-        var checkbox =  $("#free-checkbox"), checked = document.getElementById("free-checkbox").checked;
-        var clickableCheckbox = $(".clickable-checkbox"), visualCheckbox = $(".visual-checkbox");
-        var checkmarkPlace = $("p", visualCheckbox);
-        var checkmark = "&#x2714;";
-
-        if(checkbox.is(e.target) && checked) {
-            clickableCheckbox.removeClass("unchecked"); clickableCheckbox.addClass("checked");
-            checkmarkPlace.html(checkmark);
-        } else if(checkbox.is(e.target) && !checked) {
-            clickableCheckbox.removeClass("checked"); clickableCheckbox.addClass("unchecked");
-            checkmarkPlace.html("");
-        }
+    addDealButton.on("click", function(event) {
+        event.stopPropagation();
+        html.css("overflow-y", "hidden"); body.addClass("open");
+        addDealModal.addClass("visible"); overlay.addClass("visible");
     });
 
-    $(function modalAction() {
-        if(overlay.is(e.target)) {
-            html.css("overflow-y", ""); body.removeClass("open");
-            overlay.removeClass("visible");
-            setTimeout(function() { addDealModal.removeClass("visible"); }, 1000);
-        }
+    overlay.on("click",function(event) {
+        event.stopPropagation();
+        html.css("overflow-y", ""); body.removeClass("open");
+        overlay.removeClass("visible");
+        setTimeout(function() { addDealModal.removeClass("visible"); }, 1000);
     });
-
 
 });
 
-$(function addDeal() {
-    var html = $("html"), body = $("body"), overlay = $(".overlay");
-    var addDealButton = $("#add-deal-button"), addDealModal = $(".add-deal-modal");
+$(function checkboxAction() {
+    var checkbox =  $(".checkbox"), checked = document.getElementById("free-checkbox").checked;
+    var clickableCheckbox = $(".clickable-checkbox"), visualCheckbox = $(".visual-checkbox");
+    var checkmarkPlace = $("p", visualCheckbox);
+    var checkmark = "&#x2714;";
 
-    $(document).on("click", "#add-deal-button", function() {
-        html.css("overflow-y", "hidden"); body.addClass("open");
-        addDealModal.addClass("visible"); overlay.addClass("visible");
+    checkbox.delegate("label", "click", function(event) {
+        event.stopImmediatePropagation();
+    }).on("click", function(event) {
+        if(!checked) {
+            clickableCheckbox.removeClass("unchecked"); clickableCheckbox.addClass("checked");
+            checked = true; checkmarkPlace.html(checkmark);
+        } else {
+            clickableCheckbox.removeClass("checked"); clickableCheckbox.addClass("unchecked");
+            checked = false; checkmarkPlace.html("");
+        }
+
+        console.log(checked);
+
     });
 
 });
