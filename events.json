@@ -1,0 +1,30 @@
+{
+    "local-boyz-hawaiian-cafe": {
+        "event-name": "Local Boyz Hawaiian Cafe",
+        "description": "10% of all special dishes.",
+        "end-time": "15:30",
+        "geolocation": "Cobblestone Square, 1425 NW Monroe Ave"
+    },
+
+    "intel-developer-group": {
+        "event-name": "OSU Marketing Club",
+        "description": "Various food stuffs.",
+        "end-time": "11:15",
+        "geolocation": "Kelley Engineering Center RM 402"
+    },
+
+    "osu-marketing-club": {
+        "event-name": "Local Boyz Hawaiian Cafe",
+        "description": "Pizza Party!",
+        "end-time": "19:30",
+        "geolocation": "Austin Hall RM 216"
+    },
+
+    "chipotle": {
+        "event-name": "Chipotle",
+        "description": "Free Chips and Guacamole with Burrito.",
+        "end-time": "20:00",
+        "geolocation": "2501 NW Monroe Ave."
+    }
+    
+}

@@ -1,0 +1,19 @@
+        {{> add-deal-modal}}
+
+        <div class="overlay"></div>
+
+        {{> header}}
+
+        <div class="main-container">
+            <div class="main wrapper clearfix">
+
+                <article>
+                    {{#each events}}
+                        {{> event}}
+                    {{/each}}
+                </article>
+
+            </div> <!-- #main -->
+        </div> <!-- #main-container -->
+
+        {{> footer}}
