@@ -1,11 +1,17 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i');
+
+@font-face {
+    font-family: "EmojiSymbols";
+    src: url("EmojiSymbols-Regular.woff") format('woff');
+}
 
 html {
     color: rgba(34, 34, 34, 1);
-    font: 16px/26px Helvetica, Helvetica Neue, Arial;
+    font-family: 'Arimo', sans-serif;
+    font-size: 14px;
     line-height: 1.4;
     overflow-x: hidden;
-    font-family: sans-serif;
 }
 
 ::-moz-selection {
@@ -16,6 +22,10 @@ html {
 ::selection {
     background: rgba(216, 90, 26, 0.8);
     text-shadow: none;
+}
+
+h2 {
+    font-size: 1.75em;
 }
 
 hr {
@@ -98,8 +108,8 @@ nav a:hover {
     text-decoration: none;
 }
 
-.add-deal-button {
-
+#add-deal-button {
+    cursor: pointer;
 }
 
 .add-deal-modal {
@@ -434,7 +444,7 @@ input[type=checkbox] {
 }
 
 .main article h1 {
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
 /* .main-container>.wrapper {
@@ -459,6 +469,7 @@ section {
 
 dl {
     width: 350px;
+    font-size: 1.15em;
 }
 
 dt {
@@ -601,9 +612,4 @@ iframe {
 
 .clearfix {
     *zoom: 1;
-}
-
-@font-face {
-    font-family: "EmojiSymbols";
-    src: url("EmojiSymbols-Regular.woff") format('woff');
 }

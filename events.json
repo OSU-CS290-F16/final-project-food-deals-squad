@@ -2,6 +2,7 @@
     "local-boyz-hawaiian-cafe": {
         "event-name": "Local Boyz Hawaiian Cafe",
         "description": "10% of all special dishes.",
+        "start-time": "17:00",
         "end-time": "15:30",
         "free": "",
         "rating": "",
@@ -11,6 +12,7 @@
     "intel-developer-group": {
         "event-name": "Intel Developer Group",
         "description": "Various food stuffs.",
+        "start-time": "10:15",
         "end-time": "11:15",
         "free": "",
         "rating": "",
@@ -20,6 +22,7 @@
     "osu-marketing-club": {
         "event-name": "OSU Marketing Club",
         "description": "Pizza Party!",
+        "start-time": "23:59",
         "end-time": "19:30",
         "free": "",
         "rating": "",
@@ -29,6 +32,7 @@
     "chipotle": {
         "event-name": "Chipotle",
         "description": "Free Chips and Guacamole with Burrito.",
+        "start-time": "12:00",
         "end-time": "20:00",
         "free": "",
         "rating": "",
