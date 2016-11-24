@@ -3,6 +3,7 @@
         "event-name": "Local Boyz Hawaiian Cafe",
         "description": "10% of all special dishes.",
         "end-time": "15:30",
+        "free": "",
         "rating": "",
         "geolocation": "Cobblestone Square, 1425 NW Monroe Ave"
     },
@@ -11,6 +12,7 @@
         "event-name": "OSU Marketing Club",
         "description": "Various food stuffs.",
         "end-time": "11:15",
+        "free": "",
         "rating": "",
         "geolocation": "Kelley Engineering Center RM 402"
     },
@@ -19,6 +21,7 @@
         "event-name": "Local Boyz Hawaiian Cafe",
         "description": "Pizza Party!",
         "end-time": "19:30",
+        "free": "",
         "rating": "",
         "geolocation": "Austin Hall RM 216"
     },
@@ -27,6 +30,7 @@
         "event-name": "Chipotle",
         "description": "Free Chips and Guacamole with Burrito.",
         "end-time": "20:00",
+        "free": "",
         "rating": "",
         "geolocation": "2501 NW Monroe Ave."
     }
