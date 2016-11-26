@@ -492,7 +492,7 @@ iframe {
 .flair-container {
     position: absolute;
     bottom: 10px;
-    right: 22px;
+    right: 5px;
 }
 
 .flair-container>.wrapper {
@@ -501,12 +501,38 @@ iframe {
     margin: 0;
 }
 
+.like-button {
+    position: relative;
+    float: right;
+    top: -2.5px;
+    height: 25px;
+    width: 25px;
+    cursor: pointer;
+}
+
+svg {
+     transform: scale(0.8);
+}
+
+path {
+    fill: rgba(136, 136, 136, 1);
+    box-shadow: inset 0px 0px 15px rgba(33, 33, 33, 1);
+}
+
+svg:hover path {
+    fill: rgba(216, 110, 57, 1);
+}
+
+.liked {
+    fill: rgba(216, 110, 57, 1);
+}
+
 .flair {
     position: relative;
     float: right;
     width: 100px;
     height: 15px;
-    margin-left: 0.75em;
+    margin: 0.5em 0.75em 0.5em 0;
     font-size: 0.7em;
     font-weight: 700;
     letter-spacing: 0.025em;
