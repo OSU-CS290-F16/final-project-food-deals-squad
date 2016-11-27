@@ -20,31 +20,27 @@ $(function addDealModalAction() {
 $(function checkboxAction() {
     var checkbox =  $(".checkbox"), valueCheckbox = $("#free-checkbox"), checked = $("#free-checkbox").prop('checked');
     var clickableCheckbox = $(".clickable-checkbox"), visualCheckbox = $(".visual-checkbox");
-    var checkmarkPlace = $("p", visualCheckbox);
+    var checkmarkPlace = $("p", clickableCheckbox);
     var checkmark = "&#x2714;";
 
-    console.log(checked);
-
-    checkbox.delegate("label", "click", function(event) {
-        event.stopImmediatePropagation();
-    }).on("click", function(event) {
+    clickableCheckbox.on("click", function(event) {
+        event.stopPropagation();
         if(!checked) {
-            console.log("mark");
-            clickableCheckbox.removeClass("unchecked"); clickableCheckbox.addClass("checked");
-            valueCheckbox.prop('checked', true); checkmarkPlace.html(checkmark);
+            visualCheckbox.removeClass("unchecked"); visualCheckbox.addClass("checked");
+            $("#free-checkbox").prop("checked", !$("#free-checkbox").is(":checked"));
+            checkmarkPlace.html(checkmark);
         } else {
-            console.log("unmark");
-            clickableCheckbox.removeClass("checked"); clickableCheckbox.addClass("unchecked");
-            valueCheckbox.prop('checked', false); checkmarkPlace.html("");
+            visualCheckbox.removeClass("checked"); visualCheckbox.addClass("unchecked");
+            $("#free-checkbox").prop("checked", !$("#free-checkbox").is(":checked"));
+            checkmarkPlace.html("");
         }
 
-        console.log(valueCheckbox.prop("checked"));
-
+        checked = $("#free-checkbox").is(":checked");
     });
 
 });
 
-$(function pullInfomationg() {
+$(function pullInfomation() {
     var commitButton = $(".commit-deal-button");
 
     commitButton.on("click", function(event){
@@ -64,21 +60,17 @@ function clearForm() {
 
 $(function likeButtonAction() {
     var likeButton = $(".like-button");
-    console.log(likeButton.attr("value"));
 
     likeButton.on("click", function(event) {
         event.preventDefault();
         var likeButtonPath = $("path", $(this)); likeButtonValue = $(this).attr("value");
 
         if(likeButtonValue == 0) {
-            console.log("liked");
-            likeButtonPath.addClass("liked");
+            $(this).addClass("liked"); likeButtonPath.addClass("liked");
             $(this).attr("value", "1");
         } else {
-            console.log("unliked");
-            likeButtonPath.removeClass("liked");
+            $(this).removeClass("liked"); likeButtonPath.removeClass("liked");
             $(this).attr("value", "0");
         }
-        console.log(likeButton.attr("value"));
     });
 });

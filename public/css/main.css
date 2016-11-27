@@ -1,6 +1,6 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
-@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i');
 
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,400i,700,700i');
 @font-face {
     font-family: "EmojiSymbols";
     src: url("EmojiSymbols-Regular.woff") format('woff');
@@ -57,7 +57,6 @@ textarea {
     color: rgba(0, 0, 0, 1);
     padding: 0.2em 0;
 }
-
 
 body {
     position: relative;
@@ -122,9 +121,9 @@ nav a:hover {
     z-index: 1;
     border-left: 1px solid rgba(0, 0, 0, 1);
     background-color: rgba(22, 22, 22, 1);
-    -webkit-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
-    box-shadow: 0px 25px 50px -20px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 13px 40px -25px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 13px 40px -25px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 25px 50px -20px rgba(0, 0, 0, 0.75);
     transition: left 0.5s, right 0.5s, visibility 0s ease 10s, display 0s ease 10s;
 }
 
@@ -220,13 +219,13 @@ input[type=text], input[type=checkbox], .time-input {
     width: 97.2%;
     margin: 0 auto;
     cursor: text;
-    background:rgba(0, 0, 0, 1);
-    background:rgba(0,0,0,0.16);
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3) inset, 0 1px rgba(255, 255, 255, 0.06);
+    background: rgba(0, 0, 0, 1);
+    background: rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset, 0 1px rgba(255, 255, 255, 0.06);
     border: 0 none;
     border-radius: 3px;
     color: rgba(187, 187, 187, 1);
-    transition:background .2s;
+    transition: background .2s;
 }
 
 input[type=text], input[type=time] {
@@ -262,8 +261,7 @@ input[type=time] {
     top: -15px
 }
 
-input[type=time]::-webkit-inner-spin-button,
-input[type=time]::-webkit-outer-spin-button {
+input[type=time]::-webkit-inner-spin-button, input[type=time]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -296,9 +294,9 @@ input[type=checkbox] {
     cursor: pointer;
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    background:#000;
-    background:rgba(0,0,0,0.16);
-    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3) inset, 0 1px rgba(255, 255, 255, 0.06);
+    background: #000;
+    background: rgba(0, 0, 0, 0.16);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) inset, 0 1px rgba(255, 255, 255, 0.06);
 }
 
 .clickable-checkbox>p {
@@ -324,8 +322,7 @@ input[type=checkbox] {
     cursor: default;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
-    transition: width 0.4s ease 0.2s, border-top-left-radius 0.25s ease 0.225s,
-                background-color 0.3s ease 0.2s, border-bottom-left-radius  0.25s ease 0.225s;
+    transition: width 0.4s ease 0.2s, border-top-left-radius 0.25s ease 0.225s, background-color 0.3s ease 0.2s, border-bottom-left-radius 0.25s ease 0.225s;
 }
 
 .unchecked {
@@ -356,8 +353,7 @@ input[type=checkbox] {
     width: 80%;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
-    transition: width 0.4s ease 0.0s, border-top-left-radius 0.25s ease 0s,
-                background-color 0.3s ease 0.0s, border-bottom-left-radius  0.25s ease 0s;
+    transition: width 0.4s ease 0.0s, border-top-left-radius 0.25s ease 0s, background-color 0.3s ease 0.0s, border-bottom-left-radius 0.25s ease 0s;
     background-color: rgba(170, 86, 44, 1);
 }
 
@@ -438,7 +434,6 @@ input[type=checkbox] {
     background-color: rgba(170, 86, 44, 1);
 }
 
-
 .main {
     padding: 30px 0;
 }
@@ -461,9 +456,9 @@ section {
     padding: 1em 2em 4em 2em;
     height: 20%;
     width: 675px;
-    -webkit-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
-    -moz-box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
-    box-shadow: 0px 13px 40px -25px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 13px 40px -25px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 13px 40px -25px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 13px 40px -25px rgba(0, 0, 0, 0.75);
 }
 
 dl {
@@ -491,7 +486,7 @@ iframe {
 
 .flair-container {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 5px;
 }
 
@@ -504,53 +499,85 @@ iframe {
 .like-button {
     position: relative;
     float: right;
-    top: -2.5px;
+    top: 7px;
     height: 25px;
     width: 25px;
     cursor: pointer;
 }
 
 svg {
-     transform: scale(0.8);
+    transform: scale(0.85);
 }
 
 path {
-    fill: rgba(136, 136, 136, 1);
+    fill: rgba(238, 238, 238, 1);
+    stroke: rgba(153, 153, 153, 1);
     box-shadow: inset 0px 0px 15px rgba(33, 33, 33, 1);
 }
 
-svg:hover path {
-    fill: rgba(216, 110, 57, 1);
+.liked {
+    animation: beating .5s 1 alternate;
+    fill: none;
 }
 
-.liked {
+svg .liked {
+    animation: none;
     fill: rgba(216, 110, 57, 1);
+    stroke: none;
 }
 
 .flair {
     position: relative;
-    float: right;
-    width: 100px;
-    height: 15px;
-    margin: 0.5em 0.75em 0.5em 0;
-    font-size: 0.7em;
-    font-weight: 700;
-    letter-spacing: 0.025em;
-    text-align: center;
-    color: rgba(33, 33, 33, 1);
-    border-radius: 3.5px;
-    background: rgba(216, 110, 57, 0.65);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset, 0 1px rgba(216, 110, 57, 0.1);
-    border: 0 none;
-    border-radius: 1.5px;
+    margin: 10px 10px 10px 0;
+    display: inline-block;
+    padding: 0 20px 0 23px;
+    color: rgba(153, 153, 153, 1);
+    height: 20px;
+    line-height: 20px;
+    font-size: 0.8em;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 3px 0 0 3px;
+    background: rgba(238, 238, 238, 1);
+    -webkit-transition: color 0.2s;
 }
 
-.flair-inner {
-    margin: 0.5px 0;
+.flair::before {
+    content: "";
+    position: absolute;
+    top: 9px;
+    left: 5px;
+    width: 10px;
+    height: 2px;
+    transform: rotate(90deg);
+    box-shadow: inset 0 1px rgba(0, 0, 0, 0.25);
+}
+
+.flair::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 1);
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid rgba(238, 238, 238, 1);
+    border-top: 10px solid transparent;
+}
+
+.flair:hover {
+    background-color: rgba(216, 110, 57, 1);
+}
+
+.flair:hover::after {
+    border-left: 10px solid rgba(216, 110, 57, 1);
+}
+
+.flair:hover {
+    color: rgba(255, 255, 255, 1);
 }
 
 .footer-container footer {
-    color: white;
+    color: rgba(255, 255, 255, 1);
     padding: 20px 0;
 }
 
@@ -572,14 +599,12 @@ svg:hover path {
         margin-bottom: 0;
         float: right;
     }
-
     nav li:first-child a {
         margin-left: 0;
     }
     nav li:last-child a {
         margin-right: 0;
     }
-
     nav ul li {
         display: inline;
     }
@@ -589,13 +614,11 @@ svg:hover path {
 }
 
 @media only screen and (min-width: 768px) {
-
     .header-container, .main aside {
         -webkit-box-shadow: 0 5px 10px #aaa;
         -moz-box-shadow: 0 5px 10px #aaa;
         box-shadow: 0 5px 10px #aaa;
     }
-
     .title {
         float: left;
     }
@@ -603,7 +626,6 @@ svg:hover path {
         float: right;
         width: 38%;
     }
-
     .main article {
         float: left;
         width: 70%;
@@ -615,7 +637,6 @@ svg:hover path {
 }
 
 @media only screen and (min-width: 1140px) {
-
     .wrapper {
         width: 1026px;
         /* 1140px - 10% for margins */
@@ -671,4 +692,24 @@ svg:hover path {
 
 .clearfix {
     *zoom: 1;
+}
+
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes beating {
+    0% {
+        transform: scale(1)
+    }
+    40% {
+        transform: scale(1.25)
+    }
+    70% {
+        transform: scale(.9)
+    }
+    100% {
+        transform: scale(1)
+    }
 }
