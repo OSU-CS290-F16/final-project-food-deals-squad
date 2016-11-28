@@ -566,14 +566,28 @@ svg .liked {
 
 .flair:hover {
     background-color: rgba(216, 110, 57, 1);
+    color: rgba(255, 255, 255, 1);
+}
+
+.flair:hover::before {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
 }
 
 .flair:hover::after {
     border-left: 10px solid rgba(216, 110, 57, 1);
 }
 
-.flair:hover {
+.applied {
+    background-color: rgba(216, 110, 57, 1);
     color: rgba(255, 255, 255, 1);
+}
+
+.applied::before {
+    box-shadow: inset 0 1px rgba(255, 255, 255, 0.25);
+}
+
+.applied::after {
+    border-left: 10px solid rgba(216, 110, 57, 1);
 }
 
 .footer-container footer {

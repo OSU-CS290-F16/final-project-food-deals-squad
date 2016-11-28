@@ -6,6 +6,10 @@ var app = express();
 var events = require('./events');
 var port = process.env.PORT || 3000;
 
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
@@ -24,6 +28,21 @@ app.get('/', function(request, response) {
         title: 'Food Deal Squad',
         events: events
     });
+});
+
+app.post('/add-event', function(request, response) {
+    console.log("== Recieved new event data\n");
+
+    var eventName = request.body.eventName;
+    var location = request.body.location;
+    var startTime = request.body.startTime;
+    var endTime = request.body.endTime;
+    var description = request.body.description;
+    var free = request.body.free;
+
+    response.send("Events data was successfully forwarded!"); 
+
+    console.log(eventName, location, startTime, endTime, description, free, "\n");
 });
 
 

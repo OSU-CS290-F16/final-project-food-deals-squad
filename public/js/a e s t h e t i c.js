@@ -12,7 +12,7 @@ $(function addDealModalAction() {
         event.stopPropagation();
         html.css("overflow-y", ""); body.removeClass("open");
         overlay.removeClass("visible");
-        setTimeout(function() { addDealModal.removeClass("visible"); }, 1000);
+        setTimeout(function() { clearForm(); addDealModal.removeClass("visible"); }, 750);
     });
 
 });
@@ -40,22 +40,55 @@ $(function checkboxAction() {
 
 });
 
-$(function pullInfomation() {
+$(function pushEvent() {
     var commitButton = $(".commit-deal-button");
 
     commitButton.on("click", function(event){
         event.stopPropagation();
 
-        var eventName = document.getElementById("event-name").value, location = document.getElementById("location").value,
-        endTime = document.getElementById("time-ending").value, description = document.getElementById("description").value,
-        free = document.getElementById("free-checkbox").checked;
+        var eventName = $("#event-name").val(), location = $("#location").val(),
+        endTime = $("#time-ending").val(), description = $("#description").val(),
+        free = $("#free-checkbox").prop('checked');
 
-        console.log(eventName, location, endTime, description,  free);
+        var date = new Date(), hour = date.getHours(), minutes = date.getMinutes();
+        var startTime = hour + ":" + minutes;
+
+        if(eventName == "" || location == "" || endTime == "" || description == "") {
+            alert("All text fields must be completed!");
+        } else {
+            $.ajax({
+                url: "/add-event",
+                type: "POST",
+                data: {
+                    eventName: eventName,
+                    location: location,
+                    startTime: startTime,
+                    endTime: endTime,
+                    description: description,
+                    free: free
+                },
+                success: function(response) { console.log(response); }
+            })
+            .fail(function(err) {
+                console.log("Events data could not be sent! ERROR:", err.responseText);
+            });
+
+            $(".overlay").click();
+        }
+
+        return false;
     });
 });
 
 function clearForm() {
+    var eventName = $("#event-name").val(""), location = $("#location").val(""),
+    endTime = $("#time-ending").val(""), description = $("#description").val("");
 
+    if($("#free-checkbox").prop('checked')) {
+        $(".visual-checkbox").removeClass("checked"); $(".visual-checkbox").addClass("unchecked");
+        $("#free-checkbox").prop("checked", false);
+        $("p", ".clickable-checkbox").html("");
+    }
 }
 
 $(function likeButtonAction() {
