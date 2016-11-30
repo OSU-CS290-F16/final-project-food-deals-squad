@@ -7,9 +7,9 @@
         <div class="main-container">
             <div class="main wrapper clearfix">
 
-                <article>
-                    {{#each events}}
-                        {{> event}}
+                <article class="events-holder">
+                    {{#each eventObjects}}
+                        {{> eventObject}}
                     {{/each}}
                 </article>
 

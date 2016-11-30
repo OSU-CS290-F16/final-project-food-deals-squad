@@ -4,39 +4,35 @@
         "description": "10% of all special dishes.",
         "start-time": "17:00",
         "end-time": "15:30",
-        "free": "",
-        "rating": "",
+        "free": "false",
+        "rating": "3",
         "geolocation": "Cobblestone Square, 1425 NW Monroe Ave"
     },
-
     "intel-developer-group": {
         "event-name": "Intel Developer Group",
         "description": "Various food stuffs.",
         "start-time": "10:15",
         "end-time": "11:15",
-        "free": "",
-        "rating": "",
+        "free": "true",
+        "rating": "15",
         "geolocation": "Kelley Engineering Center RM 402"
     },
-
     "osu-marketing-club": {
         "event-name": "OSU Marketing Club",
         "description": "Pizza Party!",
         "start-time": "23:59",
         "end-time": "19:30",
-        "free": "",
-        "rating": "",
+        "free": "true",
+        "rating": "4",
         "geolocation": "Austin Hall RM 216"
     },
-
     "chipotle": {
         "event-name": "Chipotle",
         "description": "Free Chips and Guacamole with Burrito.",
         "start-time": "12:00",
         "end-time": "20:00",
-        "free": "",
-        "rating": "",
+        "free": "false",
+        "rating": "2",
         "geolocation": "2501 NW Monroe Ave."
     }
-
 }

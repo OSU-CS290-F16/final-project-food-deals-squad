@@ -67,7 +67,10 @@ $(function pushEvent() {
                     description: description,
                     free: free
                 },
-                success: function(response) { console.log(response); }
+            })
+            .done(function(response) {
+                console.log("New event template was recieved!");
+                appendNewEvent(response);
             })
             .fail(function(err) {
                 console.log("Events data could not be sent! ERROR:", err.responseText);
@@ -79,6 +82,12 @@ $(function pushEvent() {
         return false;
     });
 });
+
+function appendNewEvent(response) {
+    var eventsHolder = $(".events-holder");
+    console.log(response);
+    eventsHolder.prepend(response);
+}
 
 function clearForm() {
     var eventName = $("#event-name").val(""), location = $("#location").val(""),
