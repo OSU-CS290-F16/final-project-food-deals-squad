@@ -49,10 +49,10 @@ app.post('/add-event', function(request, response) {
     var key = eventName.replace(/\s+/g, '-').toLowerCase();
 
     var eventObject = {
-        "event-name": eventName,
+        "eventName": eventName,
         "description": description,
-        "start-time": startTime,
-        "end-time": endTime,
+        "startTime": startTime,
+        "endTime": endTime,
         "free": free,
         "rating": "0",
         "geolocation": location
@@ -63,15 +63,13 @@ app.post('/add-event', function(request, response) {
         jsonfile.writeFile("./events.json", eventsList);
     });
 
-    //var eventObject = {[key] : eventObject}
-    console.log(eventObject);
-
-    /* eventString = JSON.stringify(eventObject);
-    eventString = eventString.replace(/[{}]/g, ''); */
-    //console.log(eventString);
-
-    response.render('./partials/eventObject', {layout: false, eventObject:eventObject[key]}, function(error, renderedEvent) {
-        console.log(eventObject);
+    response.render('./partials/eventObject', {
+        layout: false,
+        eventName:eventName,
+        geolocation: location,
+        description: description,
+        endTime: endTime,
+    }, function(error, renderedEvent) {
         response.send(renderedEvent);
     });
 
