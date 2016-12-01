@@ -85,8 +85,9 @@ $(function pushEvent() {
 
 function appendNewEvent(response) {
     var eventsHolder = $(".events-holder");
-    console.log(response);
     eventsHolder.prepend(response);
+    $(".event-card:first-child").removeClass("shown");
+    setTimeout(function() { $(".event-card:first-child").addClass("shown"); }, 10);
 }
 
 function clearForm() {
