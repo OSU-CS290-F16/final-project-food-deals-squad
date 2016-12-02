@@ -70,10 +70,31 @@ app.post('/add-event', function(request, response) {
         description: description,
         endTime: endTime,
     }, function(error, renderedEvent) {
-        response.send(renderedEvent);
+        response.status(202).send(renderedEvent);
     });
 
     console.log("== New event was successfully saved and sent!\n");
+
+});
+
+app.post('/uptick-event-rating', function(request, response) {
+    console.log("== Recieved liked event data\n");
+    response.status(202).send("");
+
+    var likedEvents = request.body.likedEvents;
+    likedEvents = JSON.parse(likedEvents);
+    likedEvents = likedEvents.events;
+
+    jsonfile.readFile("./events.json", function(error, eventsList) {
+        
+        for(var e = 0; e < likedEvents.length; e++) {
+            var key = likedEvents[e].replace(/\s+/g, '-').toLowerCase();
+            eventsList[key]["rating"] = ( parseInt(eventsList[key]["rating"]) + 1 );
+        }
+
+        jsonfile.writeFile("./events.json", eventsList);
+
+    });
 
 });
 
