@@ -2,6 +2,8 @@ $(function addDealModalAction() {
     var html = $("html"), body = $("body"), overlay = $(".overlay");
     var addDealButton = $("#add-deal-button"), addDealModal = $(".add-deal-modal");
 
+	console.log("hello");
+	
     addDealButton.on("click", function(event) {
         event.stopPropagation();
         html.css("overflow-y", "hidden"); body.addClass("open");
@@ -45,7 +47,7 @@ $(function pushEvent() {
 
     commitButton.on("click", function(event){
         event.stopPropagation();
-
+		console.log("Test");
         var eventName = $("#event-name").val(), location = $("#location").val(),
         endTime = $("#time-ending").val(), description = $("#description").val(),
         free = $("#free-checkbox").prop('checked');
@@ -70,7 +72,7 @@ $(function pushEvent() {
             })
             .done(function(response) {
                 console.log("New event template was recieved!");
-                appendNewEvent(response);
+				appendNewEvent(response);
             })
             .fail(function(err) {
                 console.log("Events data could not be sent! ERROR:", err.responseText);
@@ -83,11 +85,38 @@ $(function pushEvent() {
     });
 });
 
+$(function checkEndTime() {
+	var date = new Date();
+	currentTime = date.getTime();
+	$('.endTimeClass').each(function() {
+		countDown = (Date.parse($(this).attr("value")) - currentTime);
+		setInterval(function(){
+			var hours, minutes, seconds, milliseconds;
+			hours = countDown / 3600000;
+			minutes = hours % 1;
+			hours = hours - minutes;
+			minutes = minutes * 60;
+			seconds = minutes % 1;
+			minutes = minutes - seconds;
+			seconds = seconds * 60;
+			milliseconds = seconds % 1;
+			seconds = seconds - milliseconds;
+			milliseconds = milliseconds * 1000;
+			var printTime = hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
+			console.log(printTime);
+			countDown = countDown - 1;
+			//$(this).html(printTime);
+			//if (countDown == 0){
+			//	$('section').remove($(this));
+			//}
+		}, 1000);
+	});
+});
+
 function appendNewEvent(response) {
     var eventsHolder = $(".events-holder");
+    console.log(response);
     eventsHolder.prepend(response);
-    $(".event-card:first-child").removeClass("shown");
-    setTimeout(function() { $(".event-card:first-child").addClass("shown"); }, 10);
 }
 
 function clearForm() {
