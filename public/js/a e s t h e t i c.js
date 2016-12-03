@@ -17,14 +17,6 @@ $(function addDealModalAction() {
 
 });
 
-var map;
-function initMap() {
-  map = new google.maps.Map(document.getElementById('map-canvas'), {
-    center: {lat: 44.5674872, lng: -123.2746627},
-    zoom: 17
-  });
-}
-
 $(function checkboxAction() {
     var checkbox =  $(".checkbox"), valueCheckbox = $("#free-checkbox"), checked = $("#free-checkbox").prop('checked');
     var clickableCheckbox = $(".clickable-checkbox"), visualCheckbox = $(".visual-checkbox");
@@ -93,8 +85,9 @@ $(function pushEvent() {
 
 function appendNewEvent(response) {
     var eventsHolder = $(".events-holder");
-    console.log(response);
     eventsHolder.prepend(response);
+    $(".event-card:first-child").removeClass("shown");
+    setTimeout(function() { $(".event-card:first-child").addClass("shown"); }, 10);
 }
 
 function clearForm() {
