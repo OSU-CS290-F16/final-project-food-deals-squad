@@ -33,14 +33,13 @@
             </div>
         </div>
     </div>
-    <!-- container for google maps, passes geolocation from json file, uses handlebars helper to parse address then sends to google maps api, then formats iframe response from google maps api-->
     <div class="maps-holder" value="{{geolocation}}">
       <iframe
     width="300"
-    height="175"
+    height="230"
     frameborder="0" style="border:0"
     src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBn5bDUutXMYExZ2gaojof0zHXIc7_Iyh0&q={{formatGeolocation geolocation}}" allowfullscreen>
   </iframe>
-
+<!-- <script src="https://maps.googleapis.com/maps/api/geocode/json?address={{formatGeolocation geolocation}}&key=AIzaSyBn5bDUutXMYExZ2gaojof0zHXIc7_Iyh0"></script> -->
     </div>
 </section>
