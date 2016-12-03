@@ -12,6 +12,17 @@ app.use(bodyParser.urlencoded({extended: false}));
 var jsonfile = require('jsonfile');
 jsonfile.spaces = 4
 
+var handlebars= require('handlebars');
+
+handlebars.registerHelper('formatGeolocation', function(geolocation, options){
+  if(geolocation)
+  { geolocation= geolocation.replace(/\s+/g, '+');
+    return geolocation;
+  }
+  else
+  {  return("201+SW+Waldo+Pl,+Corvallis,+OR")
+  }
+});
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
@@ -49,10 +60,10 @@ app.post('/add-event', function(request, response) {
     var key = eventName.replace(/\s+/g, '-').toLowerCase();
 
     var eventObject = {
-        "event-name": eventName,
+        "eventName": eventName,
         "description": description,
-        "start-time": startTime,
-        "end-time": endTime,
+        "startTime": startTime,
+        "endTime": endTime,
         "free": free,
         "rating": "0",
         "geolocation": location
@@ -63,19 +74,38 @@ app.post('/add-event', function(request, response) {
         jsonfile.writeFile("./events.json", eventsList);
     });
 
-    //var eventObject = {[key] : eventObject}
-    console.log(eventObject);
-
-    /* eventString = JSON.stringify(eventObject);
-    eventString = eventString.replace(/[{}]/g, ''); */
-    //console.log(eventString);
-
-    response.render('./partials/eventObject', {layout: false, eventObject:eventObject[key]}, function(error, renderedEvent) {
-        console.log(eventObject);
-        response.send(renderedEvent);
+    response.render('./partials/eventObject', {
+        layout: false,
+        eventName:eventName,
+        geolocation: location,
+        description: description,
+        endTime: endTime,
+    }, function(error, renderedEvent) {
+        response.status(202).send(renderedEvent);
     });
 
     console.log("== New event was successfully saved and sent!\n");
+
+});
+
+app.post('/uptick-event-rating', function(request, response) {
+    console.log("== Recieved liked event data\n");
+    response.status(202).send("");
+
+    var likedEvents = request.body.likedEvents;
+    likedEvents = JSON.parse(likedEvents);
+    likedEvents = likedEvents.events;
+
+    jsonfile.readFile("./events.json", function(error, eventsList) {
+
+        for(var e = 0; e < likedEvents.length; e++) {
+            var key = likedEvents[e].replace(/\s+/g, '-').toLowerCase();
+            eventsList[key]["rating"] = ( parseInt(eventsList[key]["rating"]) + 1 );
+        }
+
+        jsonfile.writeFile("./events.json", eventsList);
+
+    });
 
 });
 
