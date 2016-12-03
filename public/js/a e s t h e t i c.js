@@ -68,7 +68,7 @@ $(function pushEvent() {
                     endTime: endTime,
                     description: description,
                     free: free
-                },
+                }
             })
             .done(function(response) {
                 console.log("New event template was recieved!");
@@ -86,32 +86,52 @@ $(function pushEvent() {
 });
 
 $(function checkEndTime() {
-	var date = new Date();
-	currentTime = date.getTime();
-	$('.endTimeClass').each(function() {
-		countDown = (Date.parse($(this).attr("value")) - currentTime);
+	var testVar = { "eventName" : "" };
+	testVar.eventName = $(this).parent().parent().children("h2").html();
+	testVar = JSON.stringify(testVar);
+	var date = new Date(), hour = date.getHours(), minutes = date.getMinutes();
+	$('.endTimeClass').each(function() {	
+		//var countDown = (Date.parse($(this).attr("value"))/* - date.getTime()*/);
+		var countDown = 3000;
 		setInterval(function(){
-			var hours, minutes, seconds, milliseconds;
-			hours = countDown / 3600000;
-			minutes = hours % 1;
-			hours = hours - minutes;
-			minutes = minutes * 60;
-			seconds = minutes % 1;
-			minutes = minutes - seconds;
-			seconds = seconds * 60;
-			milliseconds = seconds % 1;
-			seconds = seconds - milliseconds;
-			milliseconds = milliseconds * 1000;
-			var printTime = hours + ":" + minutes + ":" + seconds + ":" + milliseconds;
-			console.log(printTime);
-			countDown = countDown - 1;
-			//$(this).html(printTime);
-			//if (countDown == 0){
-			//	$('section').remove($(this));
-			//}
+			countDown = countDown - 1000;
+			//console.log(calculateTimeAndPrint(countDown));
+			//$(this).html('test');
+			
+			var thisSection = $(this).parent().parent();
+			
+			$(this).parent().parent().outerHTML="";
+			
+			if (countDown <= 0){
+			//alert ("remove");
+				/*$.ajax({
+					url: "/remove-event",
+					type: "POST",
+					data: {
+						eventName: testVar
+					}
+				});*/
+				//alert ("test");
+				//alert($(this).closest("section"));
+				$(this).remove();
+			}
 		}, 1000);
 	});
 });
+
+function calculateTimeAndPrint(countDown){
+	var hours, minutes, seconds;
+	hours = countDown / 3600000;
+		minutes = hours % 1;
+	hours = hours - minutes;
+		minutes = minutes * 60;
+			seconds = minutes % 1;
+		minutes = minutes - seconds;
+			seconds = seconds * 60; 
+			seconds = seconds - (seconds % 1);
+	var printTime = hours + ":" + minutes + ":" + seconds;
+	return printTime;
+}
 
 function appendNewEvent(response) {
     var eventsHolder = $(".events-holder");
