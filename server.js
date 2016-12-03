@@ -14,6 +14,7 @@ jsonfile.spaces = 4
 
 var handlebars= require('handlebars');
 
+//helper to parse address to send through google maps api
 handlebars.registerHelper('formatGeolocation', function(geolocation, options){
   if(geolocation)
   { geolocation= geolocation.replace(/\s+/g, '+');
