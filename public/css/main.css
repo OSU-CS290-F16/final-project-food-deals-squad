@@ -14,6 +14,7 @@ html {
     overflow-x: hidden;
 }
 
+/* container for iframe returned by google maps api*/
 .maps-holder {
   position: absolute;
   display: block;
