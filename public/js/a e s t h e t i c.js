@@ -91,29 +91,19 @@ $(function checkEndTime() {
 	testVar = JSON.stringify(testVar);
 	var date = new Date(), hour = date.getHours(), minutes = date.getMinutes();
 	$('.endTimeClass').each(function() {	
-		//var countDown = (Date.parse($(this).attr("value"))/* - date.getTime()*/);
-		var countDown = 3000;
+		var countDown = (Date.parse($(this).attr("value")) - date.getTime());
 		setInterval(function(){
 			countDown = countDown - 1000;
-			//console.log(calculateTimeAndPrint(countDown));
-			//$(this).html('test');
-			
-			var thisSection = $(this).parent().parent();
-			
-			$(this).parent().parent().outerHTML="";
-			
+			$(this).html(calculateTimeAndPrint(countDown));			
 			if (countDown <= 0){
-			//alert ("remove");
-				/*$.ajax({
+				$.ajax({
 					url: "/remove-event",
 					type: "POST",
 					data: {
 						eventName: testVar
 					}
-				});*/
-				//alert ("test");
-				//alert($(this).closest("section"));
-				$(this).remove();
+				});
+				$(this).parent().parent().remove();
 			}
 		}, 1000);
 	});
