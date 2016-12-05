@@ -19,8 +19,8 @@ var handlebars= require('handlebars');
 // because there is a check in modal for empty geolocation string)
 handlebars.registerHelper('formatGeolocation', function(geolocation, options){
   if(geolocation)
-  { geolocation= geolocation.replace(/\s+/g, '+');
-    return geolocation;
+  {  geolocation= geolocation.replace(/\s+/g, '+');
+     return geolocation;
   }
   else
   {  return("201+SW+Waldo+Pl,+Corvallis,+OR")
@@ -33,9 +33,7 @@ app.engine('handlebars', exphbs({
 }))
 app.set('view engine', 'handlebars');
 
-
 app.use(express.static(path.join(__dirname, 'public')));
-
 
 app.get('/', function(request, response) {
     console.log("== Got request for:", request.url, "\n");
@@ -46,8 +44,6 @@ app.get('/', function(request, response) {
             eventObjects: events
         });
     });
-
-
 });
 
 app.post('/add-event', function(request, response) {
@@ -107,11 +103,8 @@ app.post('/uptick-event-rating', function(request, response) {
         }
 
         jsonfile.writeFile("./events.json", eventsList);
-
     });
-
 });
-
 
 app.get('*', function(request, response) {
     response.status(404).render('404-page', {
