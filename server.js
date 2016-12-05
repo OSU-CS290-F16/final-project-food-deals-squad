@@ -14,7 +14,9 @@ jsonfile.spaces = 4
 
 var handlebars= require('handlebars');
 
-//helper to parse address to send through google maps api
+// Use handlebars helper to parse(replace spaces with +) geolocation and return for google maps api. 
+// if no geolocation return a valid address of Valley Library (else has no current functionality
+// because there is a check in modal for empty geolocation string)
 handlebars.registerHelper('formatGeolocation', function(geolocation, options){
   if(geolocation)
   { geolocation= geolocation.replace(/\s+/g, '+');
