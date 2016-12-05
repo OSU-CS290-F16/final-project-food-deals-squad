@@ -30,7 +30,7 @@ handlebars.registerHelper('formatGeolocation', function(geolocation, options){
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
-});
+}));
 app.set('view engine', 'handlebars');
 
 
