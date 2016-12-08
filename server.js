@@ -12,6 +12,9 @@ app.use(bodyParser.urlencoded({extended: false}));
 var jsonfile = require('jsonfile');
 jsonfile.spaces = 4
 
+var handlebars = require('handlebars');
+
+
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
@@ -53,8 +56,8 @@ app.post('/add-event', function(request, response) {
         "description": description,
         "startTime": startTime,
         "endTime": endTime,
-        "free": free,
-        "rating": "0",
+        "free": JSON.parse(free),
+        "rating": 0,
         "geolocation": location
     };
 
@@ -70,22 +73,45 @@ app.post('/add-event', function(request, response) {
         description: description,
         endTime: endTime,
     }, function(error, renderedEvent) {
-        response.send(renderedEvent);
+        response.status(202).send(renderedEvent);
     });
 
     console.log("== New event was successfully saved and sent!\n");
 
 });
 
+
 app.post('/remove-event', function(request, response){
 	var eventName = request.body.eventName.trim();
 	var key = eventName.replace(/\s+/g, '-').toLowerCase();
-	
+
     jsonfile.readFile("./events.json", function(error, eventsList) {
 		console.log(key);
 		delete eventsList[key];
         jsonfile.writeFile("./events.json", eventsList);
     });
+});
+
+
+app.post('/uptick-event-rating', function(request, response) {
+    console.log("== Recieved liked event data\n");
+    response.status(202).send("");
+
+    var likedEvents = request.body.likedEvents;
+    likedEvents = JSON.parse(likedEvents);
+    likedEvents = likedEvents.events;
+
+    jsonfile.readFile("./events.json", function(error, eventsList) {
+
+        for(var e = 0; e < likedEvents.length; e++) {
+            var key = likedEvents[e].replace(/\s+/g, '-').toLowerCase();
+            eventsList[key]["rating"] = ( parseInt(eventsList[key]["rating"]) + 1 );
+        }
+
+        jsonfile.writeFile("./events.json", eventsList);
+
+    });
+
 });
 
 app.get('*', function(request, response) {
