@@ -30,7 +30,7 @@
         "eventName": "Chipotle",
         "description": "Free Chips and Guacamole with Burrito.",
         "startTime": "Fri Dec 02 2016 12:00 GMT-0800 (PST)",
-        "endTime": "Fri Dec 18 2016 20:00 GMT-0800 (PST)",
+        "endTime": "Fri Dec 02 2016 20:00 GMT-0800 (PST)",
         "free": false,
         "rating": 5,
         "geolocation": "2501 NW Monroe Ave."
