@@ -1,4 +1,4 @@
-<section>
+<section class="event-card shown">
     <h2>{{eventName}}</h2>
     <dl>
         <dt>Location: </dt>
@@ -6,7 +6,7 @@
         <dt>Description: </dt>
         <dd>{{description}}</dd>
         <dt>Time Remaining: </dt>
-        <div class="endTimeClass" value={{endTime}}><dd>{{endTime}}</dd></div>
+        <div class="endTimeClass" value="{{endTime}}" timed="0"><dd>{{endTime}}<<dd>></div>
     </dl>
     <div class="flair-container">
         <div class="wrapper">
@@ -33,5 +33,7 @@
             </div>
         </div>
     </div>
-    <iframe width="300" height="225" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=Cobblestone%20Square%2C%201425%20NW%20Monroe%20Ave&key=AIzaSyAl-bZyy1EjjEMcZP91uE1YpVfGEsKWGGI" allowfullscreen></iframe>
+    <div class="maps-holder" value="{{geolocation}}">
+
+    </div>
 </section>
