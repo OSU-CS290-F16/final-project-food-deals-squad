@@ -93,31 +93,35 @@ function runCheckEndTime() {
 	var date = new Date();
 	$('.endTimeClass').each(function createCountDown() {	
 		if ( $(this).attr("timed") != "1" ) {
-		$(this).attr("timed", "1");
-		var countDown = (Date.parse($(this).attr("value")) - date.getTime());
-		var outsideIntervalThis = $(this);
-		var timer = setInterval(function(){
-			countDown = countDown - 1000;
-			outsideIntervalThis.html(calculateTimeAndPrint(countDown));			
-			if (countDown <= 0){
-				$.ajax({
-					url: "/remove-event",
-					type: "POST",
-					data: {
-						eventName: outsideIntervalThis.parent().parent().children("h2").html()
-					}
-				});
-				outsideIntervalThis.parent().parent().remove();
-				clearInterval(timer);
-			}
-		}, 1000);
+			$(this).attr("timed", "1");
+			var countDown = (Date.parse($(this).attr("value")) - date.getTime());
+			var outsideIntervalThis = $(this);
+			var timer = setInterval(function(){
+				countDown = countDown - 1000;
+				outsideIntervalThis.html(calculateTimeAndPrint(countDown));			
+				if (countDown <= 0){
+					$.ajax({
+						url: "/remove-event",
+						type: "POST",
+						data: {
+							eventName: outsideIntervalThis.parent().parent().children("h2").html()
+						}
+					});
+					outsideIntervalThis.parent().parent().remove();
+					clearInterval(timer);
+				}
+			}, 1000);
 		}
 	});
 }
 
 function calculateTimeAndPrint(countDown){
-	var hours, minutes, seconds;
-	hours = countDown / 3600000;
+	var days, hours, minutes, seconds;
+	days = countDown / 86400000
+		hours = days % 1;
+	days = days - hours;
+	//hours = countDown / 3600000;
+	hours = hours * 24;
 		minutes = hours % 1;
 	hours = hours - minutes;
 		minutes = minutes * 60;
@@ -125,7 +129,7 @@ function calculateTimeAndPrint(countDown){
 		minutes = minutes - seconds;
 			seconds = seconds * 60; 
 			seconds = seconds - (seconds % 1);
-	var printTime = hours + ":" + minutes + ":" + seconds;
+	var printTime = days + ":" + hours + ":" + minutes + ":" + seconds;
 	return printTime;
 }
 
