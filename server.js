@@ -91,6 +91,17 @@ app.post('/add-event', function(request, response) {
 
 });
 
+app.post('/remove-event', function(request, response){
+	var eventName = request.body.eventName.trim();
+	var key = eventName.replace(/\s+/g, '-').toLowerCase();
+	
+    jsonfile.readFile("./events.json", function(error, eventsList) {
+		console.log(key);
+		delete eventsList[key];
+        jsonfile.writeFile("./events.json", eventsList);
+    });
+});
+
 app.post('/uptick-event-rating', function(request, response) {
     console.log("== Recieved liked event data\n");
     response.status(202).send("");
