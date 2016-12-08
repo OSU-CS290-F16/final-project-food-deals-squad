@@ -71,7 +71,7 @@ $(function pushEvent() {
             .done(function(response) {
                 console.log("New event template was recieved!");
                 appendNewEvent(response);
-				//runTimer();
+				runCheckEndTime();
             })
             .fail(function(err) {
                 console.log("Events data could not be sent! ERROR:", err.responseText);
@@ -86,8 +86,14 @@ $(function pushEvent() {
 
 
 $(function checkEndTime() {
+	runCheckEndTime();
+});
+
+function runCheckEndTime() {
 	var date = new Date();
 	$('.endTimeClass').each(function createCountDown() {	
+		if ( $(this).attr("timed") != "1" ) {
+		$(this).attr("timed", "1");
 		var countDown = (Date.parse($(this).attr("value")) - date.getTime());
 		var outsideIntervalThis = $(this);
 		var timer = setInterval(function(){
@@ -105,8 +111,9 @@ $(function checkEndTime() {
 				clearInterval(timer);
 			}
 		}, 1000);
+		}
 	});
-});
+}
 
 function calculateTimeAndPrint(countDown){
 	var hours, minutes, seconds;
