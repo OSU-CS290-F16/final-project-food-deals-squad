@@ -1,9 +1,10 @@
 var path = require('path');
 var express = require('express');
 var exphbs = require('express-handlebars');
+var handlebars = require('handlebars');
 
 var app = express();
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 8080;
 
 var bodyParser = require('body-parser');
 app.use(bodyParser.json());
@@ -12,25 +13,24 @@ app.use(bodyParser.urlencoded({extended: false}));
 var jsonfile = require('jsonfile');
 jsonfile.spaces = 4
 
-var handlebars = require('handlebars');
-
-// Use handlebars to parse geolocation (replace spaces with +). if no geolocation
-// return a valid address of Valley Library (else has no current functionality
-// because there is a check in modal for empty geolocation string)
-handlebars.registerHelper('formatGeolocation', function(geolocation, options){
-  if(geolocation)
-  {  geolocation= geolocation.replace(/\s+/g, '+');
-     return geolocation;
-  }
-  else
-  {  return("201+SW+Waldo+Pl,+Corvallis,+OR");
-  }
-});
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
-}))
+}));
+
+handlebars.registerHelper('isEndingSoon', function(endTime, options) {
+  var  fnTrue = options.fn, fnFalse = options.inverse;
+  var  endDate = new Date(Date.parse(endTime));
+  var  currentDate = new Date();
+
+    if((Date.parse(endDate) - Date.parse(currentDate)) < 3600000){
+      return fnTrue(this);
+    } else{
+        return fnFalse(this);
+    }
+});
+
 app.set('view engine', 'handlebars');
 
 
@@ -67,8 +67,8 @@ app.post('/add-event', function(request, response) {
         "description": description,
         "startTime": startTime,
         "endTime": endTime,
-        "free": JSON.parse(free),
-        "rating": 0,
+        "free": free,
+        "rating": "0",
         "geolocation": location
     };
 
@@ -91,17 +91,6 @@ app.post('/add-event', function(request, response) {
 
 });
 
-app.post('/remove-event', function(request, response){
-	var eventName = request.body.eventName.trim();
-	var key = eventName.replace(/\s+/g, '-').toLowerCase();
-	
-    jsonfile.readFile("./events.json", function(error, eventsList) {
-		console.log(key);
-		delete eventsList[key];
-        jsonfile.writeFile("./events.json", eventsList);
-    });
-});
-
 app.post('/uptick-event-rating', function(request, response) {
     console.log("== Recieved liked event data\n");
     response.status(202).send("");
@@ -123,39 +112,6 @@ app.post('/uptick-event-rating', function(request, response) {
 
 });
 
-
-app.post('/remove-event', function(request, response){
-	var eventName = request.body.eventName.trim();
-	var key = eventName.replace(/\s+/g, '-').toLowerCase();
-
-    jsonfile.readFile("./events.json", function(error, eventsList) {
-		console.log(key);
-		delete eventsList[key];
-        jsonfile.writeFile("./events.json", eventsList);
-    });
-});
-
-
-app.post('/uptick-event-rating', function(request, response) {
-    console.log("== Recieved liked event data\n");
-    response.status(202).send("");
-
-    var likedEvents = request.body.likedEvents;
-    likedEvents = JSON.parse(likedEvents);
-    likedEvents = likedEvents.events;
-
-    jsonfile.readFile("./events.json", function(error, eventsList) {
-
-        for(var e = 0; e < likedEvents.length; e++) {
-            var key = likedEvents[e].replace(/\s+/g, '-').toLowerCase();
-            eventsList[key]["rating"] = ( parseInt(eventsList[key]["rating"]) + 1 );
-        }
-
-        jsonfile.writeFile("./events.json", eventsList);
-
-    });
-
-});
 
 app.get('*', function(request, response) {
     response.status(404).render('404-page', {
@@ -168,3 +124,20 @@ app.get('*', function(request, response) {
 app.listen(port, function() {
     console.log("== Listening on port", port, "\n");
 });
+
+//Flair for Ending Soon
+
+
+
+/* handlebars.registerHelper('ifEndingSoon', function(endTime, options) {
+var  fnTrue = options.fn
+var  fnFalse = optiond.inverse;
+var  endDate = new Date(date.parse(endTime));
+var  currentDate = new Date();
+
+  if(Date.parse(currentDate) - Date.parse(endDate) < 3600000){
+    return fnTrue(this);
+  } else{
+      return fnFalse(this);
+  }
+}); */

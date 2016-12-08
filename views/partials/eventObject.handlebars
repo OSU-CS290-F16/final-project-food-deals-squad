@@ -6,7 +6,7 @@
         <dt>Description: </dt>
         <dd>{{description}}</dd>
         <dt>Time Remaining: </dt>
-        <div class="endTimeClass" value="{{endTime}}" timed="0"><dd>{{endTime}}<dd></div>
+        <dd>{{endTime}}</dd>
     </dl>
     <div class="flair-container">
         <div class="wrapper">
@@ -22,23 +22,12 @@
                     </g>
                 </svg>
             </div>
-            <div class="flair free applied">
+            <div class="flair free {{#if free}}applied{{/if}}">
                 <div class="flair-inner">Free</div>
-            </div>
-            <div class="flair ending-soon">
-                <div class="flair-inner">Ending Soon</div>
-            </div>
-            <div class="flair highly-rated">
-                <div class="flair-inner">Highly Rated</div>
             </div>
         </div>
     </div>
     <div class="maps-holder" value="{{geolocation}}">
-      <iframe
-    width="300"
-    height="230"
-    frameborder="0" style="border:0"
-    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBn5bDUutXMYExZ2gaojof0zHXIc7_Iyh0&q={{formatGeolocation geolocation}}" allowfullscreen>
-  </iframe>
+
     </div>
 </section>

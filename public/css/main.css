@@ -14,17 +14,6 @@ html {
     overflow-x: hidden;
 }
 
-.maps-holder {
-  position: absolute;
-  display: block;
-  top: 0px;
-  right: 2em;
-  height: 235px;
-  width: 300px;
-  border: 0px;
-  vertical-align: middle;
-}
-
 ::-moz-selection {
     background: rgba(216, 90, 26, 0.8);
     text-shadow: none;
