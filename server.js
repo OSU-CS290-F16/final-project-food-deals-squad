@@ -14,6 +14,18 @@ jsonfile.spaces = 4
 
 var handlebars = require('handlebars');
 
+// Use handlebars to parse geolocation (replace spaces with +). if no geolocation
+// return a valid address of Valley Library (else has no current functionality
+// because there is a check in modal for empty geolocation string)
+handlebars.registerHelper('formatGeolocation', function(geolocation, options){
+  if(geolocation)
+  {  geolocation= geolocation.replace(/\s+/g, '+');
+     return geolocation;
+  }
+  else
+  {  return("201+SW+Waldo+Pl,+Corvallis,+OR");
+  }
+});
 
 // Use Handlebars as the view engine for the app.
 app.engine('handlebars', exphbs({
