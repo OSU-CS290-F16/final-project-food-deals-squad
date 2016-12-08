@@ -59,8 +59,6 @@ app.post('/add-event', function(request, response) {
     };
 
     jsonfile.readFile("./events.json", function(error, eventsList) {
-		console.log(key);
-		console.log(eventsList[key]);
         eventsList[key] = eventObject;
         jsonfile.writeFile("./events.json", eventsList);
     });
@@ -72,7 +70,7 @@ app.post('/add-event', function(request, response) {
         description: description,
         endTime: endTime,
     }, function(error, renderedEvent) {
-        response.status(202).send(renderedEvent);
+        response.send(renderedEvent);
     });
 
     console.log("== New event was successfully saved and sent!\n");
