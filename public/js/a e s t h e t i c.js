@@ -2,8 +2,6 @@ $(function addDealModalAction() {
     var html = $("html"), body = $("body"), overlay = $(".overlay");
     var addDealButton = $("#add-deal-button"), addDealModal = $(".add-deal-modal");
 
-	console.log("hello");
-	
     addDealButton.on("click", function(event) {
         event.stopPropagation();
         html.css("overflow-y", "hidden"); body.addClass("open");
@@ -47,7 +45,7 @@ $(function pushEvent() {
 
     commitButton.on("click", function(event){
         event.stopPropagation();
-		console.log("Test");
+
         var eventName = $("#event-name").val(), location = $("#location").val(),
         endTime = $("#time-ending").val(), description = $("#description").val(),
         free = $("#free-checkbox").prop('checked');
@@ -68,11 +66,12 @@ $(function pushEvent() {
                     endTime: endTime,
                     description: description,
                     free: free
-                }
+                },
             })
             .done(function(response) {
                 console.log("New event template was recieved!");
-				appendNewEvent(response);
+                appendNewEvent(response);
+				//runTimer();
             })
             .fail(function(err) {
                 console.log("Events data could not be sent! ERROR:", err.responseText);
@@ -85,25 +84,25 @@ $(function pushEvent() {
     });
 });
 
+
 $(function checkEndTime() {
-	var testVar = { "eventName" : "" };
-	testVar.eventName = $(this).parent().parent().children("h2").html();
-	testVar = JSON.stringify(testVar);
-	var date = new Date(), hour = date.getHours(), minutes = date.getMinutes();
-	$('.endTimeClass').each(function() {	
+	var date = new Date();
+	$('.endTimeClass').each(function createCountDown() {	
 		var countDown = (Date.parse($(this).attr("value")) - date.getTime());
-		setInterval(function(){
+		var outsideIntervalThis = $(this);
+		var timer = setInterval(function(){
 			countDown = countDown - 1000;
-			$(this).html(calculateTimeAndPrint(countDown));			
+			outsideIntervalThis.html(calculateTimeAndPrint(countDown));			
 			if (countDown <= 0){
 				$.ajax({
 					url: "/remove-event",
 					type: "POST",
 					data: {
-						eventName: testVar
+						eventName: outsideIntervalThis.parent().parent().children("h2").html()
 					}
 				});
-				$(this).parent().parent().remove();
+				outsideIntervalThis.parent().parent().remove();
+				clearInterval(timer);
 			}
 		}, 1000);
 	});
@@ -123,10 +122,12 @@ function calculateTimeAndPrint(countDown){
 	return printTime;
 }
 
+
 function appendNewEvent(response) {
     var eventsHolder = $(".events-holder");
-    console.log(response);
     eventsHolder.prepend(response);
+    $(".event-card:first-child").removeClass("shown");
+    setTimeout(function() { $(".event-card:first-child").addClass("shown"); }, 10);
 }
 
 function clearForm() {
